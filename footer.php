@@ -1,7 +1,12 @@
 <div class="footer">
     <footer>
         <ul>
-            <li>SITEMAP</li>
+            <li>
+                created by devchemwa!
+            </li>
+            <li>
+                Copyright <?php echo date('Y'); ?>
+            </li>
         </ul>
     </footer>
 </div>

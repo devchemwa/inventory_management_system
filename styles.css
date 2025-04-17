@@ -71,3 +71,11 @@
     margin: 0 auto;
     width: auto;
 }
+.footer-container{
+    display: flex;
+    width: 100vw;
+    height: 10vh;
+}
+footer ul li{
+    margin: 0 auto;
+}

@@ -42,7 +42,7 @@ if(!$conn){
                         <input type="submit" value="Edit Item" name="edit-item">
                     </form>
                     <form action="delete-item.php" method="post">
-                        <input type="submit" value="Delete Item" name="delete-item" onclick="return confirm('Delete this item?')">
+                        <input type="submit" value="Delete Item" name="delete-item">
                     </form>
                 </td>
                 </tr> 
