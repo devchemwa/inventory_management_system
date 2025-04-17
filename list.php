@@ -7,6 +7,11 @@ if(!$conn){
    $sql = 'select * from items';
    $result = mysqli_query($conn,$sql);
    $item = mysqli_fetch_all($result);
+   if($item == null){
+    echo 'Add Items First To Access This Page';
+    $url = 'http://localhost/inventory_management_system/add.php';
+    header("Location: " . $url);
+}else{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +47,7 @@ if(!$conn){
         </tbody>
     </table>
 </div>
-<?php } ?>
+<?php } } ?>
 </div>
 <div class="footer-container">
 <?php include 'footer.php'; ?>
