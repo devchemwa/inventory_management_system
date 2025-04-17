@@ -19,6 +19,7 @@ if(!$conn){
 <div class="edit-item">
         <table border="1">
             <thead>
+                <h5>Edit Items</h5>
                 <tr>
                 <th>Name</th>
                 <th>Category</th>

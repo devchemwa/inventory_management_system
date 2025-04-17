@@ -11,6 +11,14 @@ if(!$conn){
     }else{
         $item = mysqli_fetch_all($sql);
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<?php include 'header.php'; ?>
+<body>
+    <div class="navbar-container">
+<?php include 'navbar.php'; ?>    
+</div>
+<div class="main">
 <div class="items-listing">
 <table border="1">
         <thead>
@@ -21,50 +29,32 @@ if(!$conn){
                 <th>Quantity</th>
                 <th>Unit</th>
                 <th>Reorder Level</th>
-                <th>Date</th>
             </tr>
         </thead>
         <tbody>
         <?php for($i = 0; $i < count($item); $i++){ ?>
             <tr>
-                <td><?=$item[$i][0];?></td>
-                <td><?=$item[$i][1];?></td>
-                <td><?=$item[$i][2];?></td>
-                <td><?=$item[$i][3];?></td>
-                <td><?=$item[$i][4];?></td>
-                <td><?=$item[$i][5];?></td>
-                <td><?=$item[$i][6];?></td>
-            </tr>
-            <tr>
-                <td> </td>
-                <form action="edit-item.php" method="post">
-                <td><textarea name="new-name" id="new-name" cols="10" rows="3"><?=$item[$i][1]?></textarea></td>
-                <td><textarea name="new-category" id="new-category" cols="10" rows="3"><?=$item[$i][2]?></textarea></td>
-                <td><textarea name="new-quantity" id="new-quantity" cols="10" rows="3"><?=$item[$i][3]?></textarea></td>
-                <td><textarea name="new-unit" id="new-unit" cols="10" rows="3"><?=$item[$i][4]?></textarea></td>
-                <td><textarea name="new-reorder-level" id="new-reorder-level" cols="10" rows="3"><?=$item[$i][5]?></textarea></td>
-                <td><textarea name="new-date" id="new-date" cols="10" rows="3"><?=$item[$i][6]?></textarea></td>
+                <form action="save-changes.php" method="post">
+                 <td><input type="number" name="itemID" id="itemID" value="<?=$item[$i][0];?>"></td>
+                <td><input name="new-name" id="new-name" value="<?=$item[$i][1]?>"></td>
+                <td><input name="new-category" id="new-category" value="<?=$item[$i][2]?>"></td>
+                <td><input name="new-quantity" id="new-quantity" value="<?=$item[$i][3]?>"></td>
+                <td><input name="new-unit" id="new-unit" value="<?=$item[$i][4]?>"></td>
+                <td><input name="new-reorder-level" id="new-reorder-level" value="<?=$item[$i][5]?>"></td>
                 <td><input type="submit" value="Save Changes" name="make-edit"></td>
-                <?php
-                        require 'config.php';
-                        $conn = mysqli_connect($server,$user,$pass,$db_name);
-                        if(!$conn){
-                            die('Connection Error: ' . mysqli_connect_error());
-                        }else{
-                            if(isset($_POST['make-edit'])){
-                                $newName = $_POST['new-name'];
-                                $newCategory = $_POST['new-category'];
-                                $newQuantity = $_POST['new-quantity'];
-                                $newUnit = $_POST['new-unit'];
-                                $newReorderlevel = $_POST['new-reorder-level'];
-                                $sql = mysqli_query($conn,"update items set name = '$newName', category = '$newCategory', quantity = '$newQuantity',unit = '$newUnit', reorder_level = '$newReorderlevel' where itemID = '<?=$item[$i][0]?>'" ) ;
-                            }
-                        }
-                    ?>
                 </form>
             </tr>
             <?php } ?>   
         </tbody>
+        <p>
+           NOTICE: DO NOT CHANGE ITEM ID
+        </p>
     </table>
 </div>
 <?php } } } ?>
+</div>
+<div class="footer-container">
+<?php include 'footer.php'; ?>
+</div>
+</body>
+</html>

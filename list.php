@@ -8,6 +8,14 @@ if(!$conn){
    $result = mysqli_query($conn,$sql);
    $item = mysqli_fetch_all($result);
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<?php include'header.php'; ?>
+<body>
+    <div class="navbar-container">
+<?php include 'navbar.php'; ?>
+</div>
+<div class="main">
 <div class="items-listing">
     <table border="1">
         <thead>
@@ -34,7 +42,10 @@ if(!$conn){
         </tbody>
     </table>
 </div>
-
-
-
 <?php } ?>
+</div>
+<div class="footer-container">
+<?php include 'footer.php'; ?>
+</div>
+</body>
+</html>
