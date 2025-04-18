@@ -16,15 +16,22 @@ if(!$conn){
     if(!$sql){
         echo ' error in sql statement ' . $sql;
     }else{
-    $result = mysqli_fetch_all($sql);
+    $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
     $count = count($result);
 ?>
 <div class="report-box">
 <div class="counter">
  <p>Total Number Of Items: <?=$count;?></p>
- <p></p>
+ <p><?php $query = mysqli_query($conn,'select name, quantity, reorder_level from items');
+    $item = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    for($i = 0; $i < $count; $i++){
+    $quantity = $item[$i]['quantity'];
+    $reorder_level = $item[$i]['reorder_level'];
+    if($quantity == $reorder_level){
+        echo 'Restock item: ' . $item[$i]['name'] . '</br>';
+    }
+    }?></p>
 </div>
-
 </div>
 <?php } }?>
 </div>

@@ -95,12 +95,11 @@ footer ul li{
 }
 .report-box{
     display: flex;
-    width: 20vw;
+    width: 40vw;
     height: 20vw;
-    background-color: darkcyan;
-    margin-left: 20px;
+    margin: 0 auto;
     margin-top: 20px;
-    float: left;
+    background-color: darkcyan;
     border-radius: 20px;
 }
 .counter{
