@@ -48,7 +48,7 @@ if (!$conn) {
                     </tbody>
                 </table>
                 <form action="clear.php" method="post">
-                    <input type="submit" name="clear-items" id="clear-items" value="Delete All Items">
+                    <input type="submit" name="clear-items" id="clear-items" value="Delete All Items" onclick="return confirm('Confirm To Delete All Items? This Action Cannot Be Undone!')">
                 </form>
             </div>
         </div>

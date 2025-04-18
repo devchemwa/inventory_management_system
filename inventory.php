@@ -11,7 +11,7 @@
         <?php include 'sidebar.php'; ?>
     </div>
     <div class="main-content">
-       
+        
     </div>
 </div>
 
