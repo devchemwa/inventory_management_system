@@ -17,7 +17,11 @@
                 <option value="perishable">perishable</option>
         </select><br><br>
         <input type="number" name="quantity" id="quantity" placeholder="Quantity" required><br><br>
-        <input type="text" name="unit" id="unit" placeholder="Unit e.g. Kg" required><br><br>
+        <label for="unit">Unit:</label><br><br>
+        <select name="unit" id="unit">
+            <option value="Kg">Kilogrammes</option>
+            <option value="g">grammes</option>
+        </select><br><br>
         <input type="number" name="reorder-level" id="reorder-level" placeholder="reorder level" required><br><br>
         <input type="submit" name="add-new-item" id="add-new-item"><br><br>
     </form>
