@@ -10,7 +10,6 @@ if (!$conn) {
     <!DOCTYPE html>
     <html lang="en">
     <?php include 'header.php'; ?>
-
     <body>
         <div class="navbar-container">
             <?php include 'navbar.php'; ?>

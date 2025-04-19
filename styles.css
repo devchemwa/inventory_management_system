@@ -8,14 +8,14 @@
     height: 100px;
     background-color: lightsalmon;
 }
-.nabar ul{
-    display: flex;
+.navbar nav{
+    display:  flex;
 }
 .navbar nav ul li{
     display: inline;
     list-style: none;
-    align-items: baseline;
-    padding: 10px 10px;
+    align-items: center;
+    padding: 20px;
 }
 .navbar nav ul li a{
     text-decoration: none;
@@ -49,6 +49,11 @@
     box-shadow: 1px 1px  1px 1px #000;
 }
 .add-item{
+   width: 100vw;
+   height: 100vw;
+   display: flex;
+}
+.add-item form{
     margin:  0 auto;
 }
 .add-item form input{
@@ -108,5 +113,10 @@ footer ul li{
     color: #fff;
 }
 .delete-item-table{
-    margin: 0 auto;
+    display: flex;
+    width: 100vw;
+    height: 100vw;
+}
+.delete-item-table table{
+    margin:  0 auto;
 }
