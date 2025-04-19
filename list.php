@@ -6,7 +6,7 @@ if(!$conn){
 }else{
    $sql = 'select * from items';
    $result = mysqli_query($conn,$sql);
-   $item = mysqli_fetch_all($result);
+   $item = mysqli_fetch_all($result, MYSQLI_ASSOC);
    if($item == null){
     echo 'Add Items First To Access This Page';
     $url = 'http://localhost/inventory_management_system/add.php';
@@ -31,17 +31,19 @@ if(!$conn){
                 <th>Quantity</th>
                 <th>Unit</th>
                 <th>Reorder Level</th>
+                <th>Last Updated</th>
             </tr>
         </thead>
         <tbody>
         <?php for($i = 0; $i < count($item); $i++){ ?>
             <tr>
-                <td><?=$item[$i][0];?></td>
-                <td><?=$item[$i][1];?></td>
-                <td><?=$item[$i][2];?></td>
-                <td><?=$item[$i][3];?></td>
-                <td><?=$item[$i][4];?></td>
-                <td><?=$item[$i][5];?></td>
+                <td><?=$item[$i]['itemID'];?></td>
+                <td><?=$item[$i]['name'];?></td>
+                <td><?=$item[$i]['category'];?></td>
+                <td><?=$item[$i]['quantity'];?></td>
+                <td><?=$item[$i]['unit'];?></td>
+                <td><?=$item[$i]['reorder_level'];?></td>
+                <td><?=$item[$i]['last_updated'];?></td>
             </tr>
             <?php } ?>   
         </tbody>

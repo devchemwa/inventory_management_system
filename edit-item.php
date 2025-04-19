@@ -9,7 +9,7 @@ if(!$conn){
     if(!$sql){
         die('Error in sql statement: ' . $sql);
     }else{
-        $item = mysqli_fetch_all($sql);
+        $item = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,12 +35,12 @@ if(!$conn){
         <?php for($i = 0; $i < count($item); $i++){ ?>
             <tr>
                 <form action="save-changes.php" method="post">
-                 <td><input type="number" name="itemID" id="itemID" value="<?=$item[$i][0];?>"></td>
-                <td><input name="new-name" id="new-name" value="<?=$item[$i][1]?>"></td>
-                <td><input name="new-category" id="new-category" value="<?=$item[$i][2]?>"></td>
-                <td><input name="new-quantity" id="new-quantity" value="<?=$item[$i][3]?>"></td>
-                <td><input name="new-unit" id="new-unit" value="<?=$item[$i][4]?>"></td>
-                <td><input name="new-reorder-level" id="new-reorder-level" value="<?=$item[$i][5]?>"></td>
+                 <td><input type="number" name="itemID" id="itemID" value="<?=$item[$i]['itemID'];?>"></td>
+                <td><input name="new-name" id="new-name" value="<?=$item[$i]['name']?>"></td>
+                <td><input name="new-category" id="new-category" value="<?=$item[$i]['category']?>"></td>
+                <td><input name="new-quantity" id="new-quantity" value="<?=$item[$i]['quantity']?>"></td>
+                <td><input name="new-unit" id="new-unit" value="<?=$item[$i]['unit']?>"></td>
+                <td><input name="new-reorder-level" id="new-reorder-level" value="<?=$item[$i]['reorder_level']?>"></td>
                 <td><input type="submit" value="Save Changes" name="make-edit"></td>
                 </form>
             </tr>

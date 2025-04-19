@@ -4,9 +4,9 @@ $conn = mysqli_connect($server,$user,$pass,$db_name);
 if(!$conn){
     die('Connection Error: ' . mysqli_connect_error());
 }else{
-    $sql = 'select name,category,quantity,unit,reorder_level from items';
+    $sql = 'select name,category,quantity,unit from items';
     $result = mysqli_query($conn,$sql);
-    $item = mysqli_fetch_all($result );
+    $item = mysqli_fetch_all($result, MYSQLI_ASSOC);
     if($item == null){
         echo 'Add Items First To Access This Page';
         $url = 'http://localhost/inventory_management_system/add.php';
@@ -30,18 +30,16 @@ if(!$conn){
                 <th>Category</th>
                 <th>Quantity</th>
                 <th>Unit</th>
-                <th>Reorder Level</th>
                 <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php for($i = 0; $i < count($item); $i++){ ?>
                 <tr>
-                <td><?=$item[$i][0];?></td>
-                <td><?=$item[$i][1];?></td>
-                <td><?=$item[$i][2];?></td>
-                <td><?=$item[$i][3];?></td>
-                <td><?=$item[$i][4];?></td>
+                <td><?=$item[$i]['name'];?></td>
+                <td><?=$item[$i]['category'];?></td>
+                <td><?=$item[$i]['quantity'];?></td>
+                <td><?=$item[$i]['unit'];?></td>   
                 <td colspan="2" style="justify-items:center;">
                     <form action="edit-item.php" method="post">
                         <input type="submit" value="Edit Item" name="edit-item">
